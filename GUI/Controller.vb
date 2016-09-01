@@ -39,6 +39,12 @@ Public Class Controller
         myModel.moveRight()
         redrawNumbers()
         myGUI.Refresh()
+        If myModel.isGameWon() Then
+            'showGameWonMsg()
+            'myGUI.startFlashing()
+            myGUI.ColorTimer.Start()
+            myGWD.ShowDialog()
+        End If
     End Sub
 
     'Private Shared Sub PictureBox_TileClicked(x As Integer, y As Integer) Handles myGUI.TileClicked
