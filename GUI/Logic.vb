@@ -149,6 +149,7 @@
                 End If
             Else
                 Console.WriteLine("Unable to move: Board runs out above")
+                selectTile(selectedX, selectedY)
             End If
         Else
             Console.WriteLine("Unable to move: Tile is not selected")
@@ -170,6 +171,7 @@
                 End If
             Else
                 Console.WriteLine("Unable to move: Board runs out below")
+                selectTile(selectedX, selectedY)
             End If
         Else
             Console.WriteLine("Unable to move: Tile is not selected")
@@ -191,6 +193,7 @@
                 End If
             Else
                 Console.WriteLine("Unable to move: Board runs out to the left")
+                selectTile(selectedX, selectedY)
             End If
         Else
             Console.WriteLine("Unable to move: Tile is not selected")
@@ -212,6 +215,7 @@
                 End If
             Else
                 Console.WriteLine("Unable to move: Board runs out to the right")
+                selectTile(selectedX, selectedY)
             End If
         Else
             Console.WriteLine("Unable to move: Tile is not selected")

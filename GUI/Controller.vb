@@ -37,6 +37,7 @@ Public Class Controller
         myModel.moveLeft()
         myModel.selectTile(x, y)
         myModel.moveRight()
+        redrawNumbers()
         myGUI.Refresh()
     End Sub
 
