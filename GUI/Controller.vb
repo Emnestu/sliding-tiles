@@ -1,4 +1,7 @@
-﻿Public Class Controller
+﻿'@author  Alex Halenko
+'@version 1.0, 2016/09/01
+
+Public Class Controller
     Shared WithEvents myGUI As New GUI
     Shared WithEvents myGWD As New GameWonDialog
     Shared myModel As New Logic
