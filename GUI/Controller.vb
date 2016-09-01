@@ -1,4 +1,7 @@
-﻿Public Class Controller
+﻿'@author  Alex Halenko
+'@version 1.0, 2016/09/01
+
+Public Class Controller
     Shared WithEvents myGUI As New GUI
     Shared WithEvents myGWD As New GameWonDialog
     Shared myModel As New Logic
@@ -26,97 +29,14 @@
     End Sub
 
     Private Shared Sub PictureBox_TileClicked(x As Integer, y As Integer) Handles myGUI.TileClicked
-        If Not myModel.getSelected Then
-            myModel.selectTile(x, y)
-            If myModel.getSelected Then 'Cus you may have clicked 0, which won't be selected
-                myGUI.backColourOn()
-                myGUI.selectedLightOn(x, y)
-            End If
-        Else
-            matrix = myModel.getMatrix
-            If x = myModel.getSelectedX And y = myModel.getSelectedY Then
-                myModel.selectTile(x, y)
-                myGUI.backColourOff()
-                myGUI.selectedLightOff(x, y)
-            ElseIf x = myModel.getSelectedX - 1 And y = myModel.getSelectedY Then
-                If matrix(x, y).getNumber = 0 Then
-                    myModel.moveUp()
-                    myGUI.backColourOff()
-                    myGUI.selectedLightOff(myModel.getSelectedX, myModel.getSelectedY)
-                    redrawNumbers()
-                    If myModel.isGameWon() Then
-                        'showGameWonMsg()
-                        'myGUI.startFlashing()
-                        myGUI.ColorTimer.Start()
-                        myGWD.ShowDialog()
-                    End If
-                Else
-                    myModel.selectTile(myModel.getSelectedX, myModel.getSelectedY)
-                    myGUI.selectedLightOff(myModel.getSelectedX, myModel.getSelectedY)
-                    myModel.selectTile(x, y)
-                    myGUI.selectedLightOn(x, y)
-                End If
-            ElseIf x = myModel.getSelectedX + 1 And y = myModel.getSelectedY Then
-                If matrix(x, y).getNumber = 0 Then
-                    myModel.moveDown()
-                    myGUI.backColourOff()
-                    myGUI.selectedLightOff(myModel.getSelectedX, myModel.getSelectedY)
-                    redrawNumbers()
-                    If myModel.isGameWon() Then
-                        'showGameWonMsg()
-                        'myGUI.startFlashing()
-                        myGUI.ColorTimer.Start()
-                        myGWD.ShowDialog()
-                    End If
-                Else
-                    myModel.selectTile(myModel.getSelectedX, myModel.getSelectedY)
-                    myGUI.selectedLightOff(myModel.getSelectedX, myModel.getSelectedY)
-                    myModel.selectTile(x, y)
-                    myGUI.selectedLightOn(x, y)
-                End If
-            ElseIf x = myModel.getSelectedX And y = myModel.getSelectedY - 1 Then
-                If matrix(x, y).getNumber = 0 Then
-                    myModel.moveLeft()
-                    myGUI.backColourOff()
-                    myGUI.selectedLightOff(myModel.getSelectedX, myModel.getSelectedY)
-                    redrawNumbers()
-                    If myModel.isGameWon() Then
-                        'showGameWonMsg()
-                        'myGUI.startFlashing()
-                        myGUI.ColorTimer.Start()
-                        myGWD.ShowDialog()
-                    End If
-                Else
-                    myModel.selectTile(myModel.getSelectedX, myModel.getSelectedY)
-                    myGUI.selectedLightOff(myModel.getSelectedX, myModel.getSelectedY)
-                    myModel.selectTile(x, y)
-                    myGUI.selectedLightOn(x, y)
-                End If
-            ElseIf x = myModel.getSelectedX And y = myModel.getSelectedY + 1 Then
-                If matrix(x, y).getNumber = 0 Then
-                    myModel.moveRight()
-                    myGUI.backColourOff()
-                    myGUI.selectedLightOff(myModel.getSelectedX, myModel.getSelectedY)
-                    redrawNumbers()
-                    If myModel.isGameWon() Then
-                        'showGameWonMsg()
-                        'myGUI.startFlashing()
-                        myGUI.ColorTimer.Start()
-                        myGWD.ShowDialog()
-                    End If
-                Else
-                    myModel.selectTile(myModel.getSelectedX, myModel.getSelectedY)
-                    myGUI.selectedLightOff(myModel.getSelectedX, myModel.getSelectedY)
-                    myModel.selectTile(x, y)
-                    myGUI.selectedLightOn(x, y)
-                End If
-            ElseIf Not matrix(x, y).getNumber = 0 Then
-                myModel.selectTile(myModel.getSelectedX, myModel.getSelectedY)
-                myGUI.selectedLightOff(myModel.getSelectedX, myModel.getSelectedY)
-                myModel.selectTile(x, y)
-                myGUI.selectedLightOn(x, y)
-            End If
-        End If
+        myModel.selectTile(x, y)
+        myModel.moveUp()
+        myModel.selectTile(x, y)
+        myModel.moveDown()
+        myModel.selectTile(x, y)
+        myModel.moveLeft()
+        myModel.selectTile(x, y)
+        myModel.moveRight()
         myGUI.Refresh()
     End Sub
 
