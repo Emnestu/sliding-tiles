@@ -85,7 +85,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="blank_tile.vb" />
     <Compile Include="Controller.vb" />
     <Compile Include="GUI.vb">
       <SubType>Form</SubType>
