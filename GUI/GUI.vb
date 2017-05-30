@@ -162,7 +162,7 @@
 
     Function getPic(ByVal i As Integer) As Image
         If i = 0 Then
-            Return My.Resources.printable_number_0
+            Return My.Resources.blank_tile
         End If
         If i = 1 Then
             Return My.Resources.printable_number_1

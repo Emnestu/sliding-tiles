@@ -85,6 +85,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="blank_tile.vb" />
     <Compile Include="Controller.vb" />
     <Compile Include="GUI.vb">
       <SubType>Form</SubType>
@@ -200,9 +201,6 @@
     <None Include="Resources\printable_number_15.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\printable_number_16.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
@@ -227,6 +225,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Horns and hooves_caption.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\blank_tile.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
